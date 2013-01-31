@@ -1,8 +1,13 @@
+from functools import partial
+
 from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide import QtGui
 
 from ostrich_runner.record_tools import *
+from ostrich_runner.actions import *
+
+display_error = partial(QMessageBox.critical, u'error')
 
 
 class RecordNameInput(QLineEdit, object):
@@ -22,7 +27,7 @@ class RecordNameInput(QLineEdit, object):
 
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_Return:
-            print 'run application', self.record_name
+            try_run_application_and_quit_if_valid_record_name(self.record_name)
         elif event.key() == Qt.Key_Escape:
             QtGui.qApp.quit()
         else:
