@@ -1,13 +1,9 @@
-from functools import partial
-
 from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide import QtGui
 
 from ostrich_runner.record_tools import *
 from ostrich_runner.actions import *
-
-display_error = partial(QMessageBox.critical, u'error')
 
 
 class RecordNameInput(QLineEdit, object):

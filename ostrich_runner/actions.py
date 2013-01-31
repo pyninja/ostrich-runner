@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
+from functools import partial
+
 from PySide.QtCore import *
 from PySide import QtGui
 
 from ostrich_runner.record_tools import *
-from ostrich_runner.ui import *
+
+
+display_error = partial(QtGui.QMessageBox.critical, None, u'error')
 
 
 class CannotRunApplication(Exception):
