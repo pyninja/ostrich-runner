@@ -2,12 +2,12 @@
 from functools import partial
 
 from PySide.QtCore import *
-from PySide import QtGui
+from PySide.QtGui import *
 
 from ostrich_runner.record_tools import *
 
 
-display_error = partial(QtGui.QMessageBox.critical, None, u'error')
+display_error = partial(QMessageBox.critical, None, u'error')
 
 
 class CannotRunApplication(Exception):
@@ -27,7 +27,7 @@ def try_run_application_and_quit(record_name):
     except CannotRunApplication:
         display_error(u'Błąd podczas uruchamiania aplikacji.')
     else:
-        QtGui.qApp.quit()
+        qApp.quit()
 
 
 def run_application(record_name):
